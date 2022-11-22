@@ -66,7 +66,7 @@ module.exports = {
 **live development server**를 지원하기 위해서 **HtmlWebpackPlugin**을 사용한다.
 ## 3. 결과
 지금까지의 웹팩 세팅에 의한 번들링 결과는 아래와 같다.
-![](../../../../../var/folders/k9/bjzw0h7947l51j1q43_w6c080000gn/T/TemporaryItems/NSIRD_screencaptureui_4vc9oC/스크린샷 2022-11-23 오전 12.48.17.png)
+<img width="240" alt="스크린샷 2022-11-23 오전 12 48 35" src="https://user-images.githubusercontent.com/62709718/203359489-324fcd34-5760-4ea1-b893-540246862a61.png">
 
 dist 폴더의 index.html 파일을 실행해보면 정상적으로 작동하는 것을 확인할 수 있다.
 
