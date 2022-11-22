@@ -52,6 +52,25 @@ Webpack은 기본적으로 JS 파일만 번들링할 수 있다. 그래서 JSX, 
 - **@babel/preset-env**는 ES6+ 문법을 ES5로 변환해주는 플러그인의 모음
 - **@babel/preset-react**는 React, JSX 문법을 JS로 변환해주는 플러그인의 모음
 
+**Assets**
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.png/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.svg/,
+        type: 'asset/inline',
+      },
+    ]
+  }
+}
+```
+[Asset Modules](https://webpack.kr/guides/asset-modules/) 가이드를 따라 작성하였다. 주로 svg 파일은 인라인 방식을 채택하고, png 파일은 파일 방식을 채택한다. 이에 대해서는 따로 정리해보도록 한다.
+
 **Plugins**
 ```javascript
 module.exports = {
