@@ -71,8 +71,14 @@ module.exports = {
 
 위의 로더 순서는 반드시 유지되어야 한다. css-loader가 먼저 실행되어야 style-loader가 정상적으로 실행된다.
 
-이렇게 하면 스타일이 필요한 파일에 `import ./style.css`하여 가져올 수 있다. 이제 모듈이 실행될 때 html 파일의 `<head>`에 문자열화 된 CSS가 `<style>` 태그로 삽입된다.용
+이렇게 하면 스타일이 필요한 파일에 `import ./style.css`하여 가져올 수 있다. 이제 모듈이 실행될 때 html 파일의 `<head>`에 문자열화 된 CSS가 `<style>` 태그로 삽입된다.
 
+<img width="839" alt="스크린샷 2022-11-23 오전 1 36 24" src="https://user-images.githubusercontent.com/62709718/203370539-56bb707e-5935-40d3-81e7-623f0e5c254e.png">
+
+
+![스크린샷 2022-11-23 오전 1 34 31](https://user-images.githubusercontent.com/62709718/203370403-fad23879-2184-461b-a96a-d58c3ba9f898.png)
+
+(왜 스타일이 두 번 들어가는지는 알아봐야겠다...)
 
 
 **Images**
