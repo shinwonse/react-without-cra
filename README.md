@@ -52,7 +52,30 @@ Webpack은 기본적으로 JS 파일만 번들링할 수 있다. 그래서 JSX, 
 - **@babel/preset-env**는 ES6+ 문법을 ES5로 변환해주는 플러그인의 모음
 - **@babel/preset-react**는 React, JSX 문법을 JS로 변환해주는 플러그인의 모음
 
-**Assets**
+**CSS**
+```javascript
+module.exports = {
+	module: {
+    rules: [
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			}
+		]
+	},
+}
+```
+`npm install -D style-loader css-loader`
+- **style-loader**는 Inject CSS into the DOM
+- **css-loader**는 JS 모듈에서 CSS 파일을 함께 번들링
+
+위의 로더 순서는 반드시 유지되어야 한다. css-loader가 먼저 실행되어야 style-loader가 정상적으로 실행된다.
+
+이렇게 하면 스타일이 필요한 파일에 `import ./style.css`하여 가져올 수 있다. 이제 모듈이 실행될 때 html 파일의 `<head>`에 문자열화 된 CSS가 `<style>` 태그로 삽입된다.용
+
+
+
+**Images**
 ```javascript
 module.exports = {
   module: {
