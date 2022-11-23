@@ -80,6 +80,80 @@ module.exports = {
 
 (왜 스타일이 두 번 들어가는지는 알아봐야겠다...)
 
+**Autoprefixed CSS**
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                  ],
+                ],
+              }
+            }
+          }],
+      },
+    ]
+  }
+}
+```
+`npm install -D postcss-loader postcss-preset-env`
+
+**postcss-preset-env**는 CSS를 브라우저 호환성을 고려하여 변환해주는 플러그인이다. 따라서 **-moz, -webkit** 등의 접두사를 자동으로 붙여준다. (**autoprefixer**가 포함되어 있다.)
+
+또한 **css-loader**의 modules 옵션을 true로 설정하여 **CSS Modules**를 이용할 수 있도록 하였다.
+
+**CSS-in-JS**
+```javascript
+module.exports = {
+	module: {
+		rules: [
+      {
+        test: /\.style.js$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                parser: 'postcss-js',
+              },
+              execute: true,
+            },
+          },
+          'babel-loader',
+        ],
+      },
+		]
+	}
+}
+```
+`npm install -D postcss-js`
+
+**postcss-js**는 JS 객체를 CSS 문자열로 변환해주는 플러그인이다. 따라서 **css-in-js**를 사용할 수 있다.
+
 
 **Images**
 ```javascript
