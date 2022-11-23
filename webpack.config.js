@@ -16,7 +16,49 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                  ],
+                ],
+              }
+            }
+          }],
+      },
+      {
+        test: /\.style.js$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                parser: 'postcss-js',
+              },
+              execute: true,
+            },
+          },
+          'babel-loader',
+        ],
       },
       {
         test: /\.jsx?$/,
