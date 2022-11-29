@@ -22,13 +22,13 @@ module.exports = {
 ```javascript
 module.exports = {
   output: {
-    filename: 'index.js',
+    filename: 'index.jsx',
   },
 }
 ```
-리액트 프로젝트의 경우 컴포넌트를 import하는 상위 컴포넌트를 따라 올라가다보면 결국 VDOM과 root div를 연결해주는 index.js 파일을 만나게 된다. 
+리액트 프로젝트의 경우 컴포넌트를 import하는 상위 컴포넌트를 따라 올라가다보면 결국 VDOM과 root div를 연결해주는 index.jsx 파일을 만나게 된다. 
 
-그래서 Webpack 설정에서 output의 filename을 index.js로 따로 설정해준다. 이렇게 설정하면 Webpack이 번들링을 하고 나면 dist 폴더에 index.js 파일이 생성된다.
+그래서 Webpack 설정에서 output의 filename을 index.js로 따로 설정해준다. 이렇게 설정하면 Webpack이 번들링을 하고 나면 dist 폴더에 index.jsx 파일이 생성된다.
 
 **Loaders**
 ```javascript
